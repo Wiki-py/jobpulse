@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Registration | Job Pulse</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+    <!-- Main Registration Container -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Registration Card -->
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4 p-md-5">
+                        <!-- Progress Steps -->
+                        <div class="steps mb-5">
+                            <div class="step-progress">
+                                <div class="step-progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="steps-container">
+                                <div class="step active" data-step="1">
+                                    <div class="step-icon"><span>1</span></div>
+                                    <div class="step-label d-none d-md-block">Personal Info</div>
+                                </div>
+                                <div class="step" data-step="2">
+                                    <div class="step-icon"><span>2</span></div>
+                                    <div class="step-label d-none d-md-block">Professional</div>
+                                </div>
+                                <div class="step" data-step="3">
+                                    <div class="step-icon"><span>3</span></div>
+                                    <div class="step-label d-none d-md-block">Account</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logo and Header -->
+                        <div class="text-center mb-4">
+                            <img src="images/logo.png" alt="Job Pulse Logo" width="120" class="mb-3">
+                            <h3 class="fw-bold text-primary">Create Your Candidate Profile</h3>
+                            <p class="text-muted">Register to find your dream job</p>
+                        </div>
+
+                        <!-- Registration Form -->
+                        <form id="candidateRegistrationForm" novalidate>
+                            <!-- Step 1: Personal Information -->
+                            <div class="step-content" data-step-content="1">
+                                <h5 class="mb-4 border-bottom pb-2">Personal Information</h5>
+                                
+                                <!-- Profile Photo -->
+                                <div class="text-center mb-4">
+                                    <div class="profile-photo-container mx-auto mb-3">
+                                        <img id="profilePreview" src="images/default-avatar.jpg" 
+                                             class="rounded-circle border" width="120" height="120" alt="Profile Photo">
+                                        <label for="profilePhoto" class="profile-photo-upload">
+                                            <i class="fas fa-camera"></i>
+                                        </label>
+                                        <input type="file" id="profilePhoto" accept="image/*" class="d-none">
+                                    </div>
+                                    <small class="text-muted">Upload your professional photo</small>
+                                </div>
+                                
+                                <!-- Name -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your first name
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your last name
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Contact Info -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">Phone *</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your phone number
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Location -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="country" class="form-label">Country *</label>
+                                        <select class="form-select" id="country" required>
+                                            <option value="" selected disabled>Select country</option>
+                                            <option value="KENYA">Kenya</option>
+                                            <option value="Tanzania">Tanzania</option>
+                                            <option value="Rwanda">Rwanda</option>
+                                            <option value="Uganda">Uganda</option>
+                                            <option value="South Africa">South Africa</option>
+                                            <option value="Nigeria">Nigeria</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select your country
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="city" class="form-label">City *</label>
+                                        <input type="text" class="form-control" id="city" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your city
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Date of Birth -->
+                                <div class="mb-3">
+                                    <label for="dob" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="dob">
+                                </div>
+                                
+                                <!-- Gender -->
+                                <div class="mb-4">
+                                    <label class="form-label">Gender</label>
+                                    <div class="d-flex gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                            <label class="form-check-label" for="male">Male</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                            <label class="form-check-label" for="female">Female</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                                            <label class="form-check-label" for="other">Other</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="preferNotToSay" value="prefer-not-to-say">
+                                            <label class="form-check-label" for="preferNotToSay">Prefer not to say</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-primary next-step">Continue <i class="fas fa-arrow-right ms-2"></i></button>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 2: Professional Information -->
+                            <div class="step-content d-none" data-step-content="2">
+                                <h5 class="mb-4 border-bottom pb-2">Professional Information</h5>
+                                
+                                <!-- Current Status -->
+                                <div class="mb-3">
+                                    <label for="currentStatus" class="form-label">Current Status *</label>
+                                    <select class="form-select" id="currentStatus" required>
+                                        <option value="" selected disabled>Select your current status</option>
+                                        <option value="employed">Employed</option>
+                                        <option value="unemployed">Unemployed</option>
+                                        <option value="student">Student</option>
+                                        <option value="freelancer">Freelancer</option>
+                                        <option value="looking">Actively looking</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select your current status
+                                    </div>
+                                </div>
+                                
+                                <!-- Job Title -->
+                                <div class="mb-3">
+                                    <label for="jobTitle" class="form-label">Current/Most Recent Job Title</label>
+                                    <input type="text" class="form-control" id="jobTitle" placeholder="e.g. Software Developer">
+                                </div>
+                                
+                                <!-- Industry -->
+                                <div class="mb-3">
+                                    <label for="industry" class="form-label">Industry *</label>
+                                    <select class="form-select" id="industry" required>
+                                        <option value="" selected disabled>Select industry</option>
+                                        <option value="IT">Information Technology</option>
+                                        <option value="Finance">Finance</option>
+                                        <option value="Healthcare">Healthcare</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Retail">Retail</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select your industry
+                                    </div>
+                                </div>
+                                
+                                <!-- Experience -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="experience" class="form-label">Years of Experience *</label>
+                                        <select class="form-select" id="experience" required>
+                                            <option value="" selected disabled>Select experience</option>
+                                            <option value="0">No experience</option>
+                                            <option value="1-2">1-2 years</option>
+                                            <option value="3-5">3-5 years</option>
+                                            <option value="6-10">6-10 years</option>
+                                            <option value="10+">10+ years</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select your experience level
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="education" class="form-label">Highest Education *</label>
+                                        <select class="form-select" id="education" required>
+                                            <option value="" selected disabled>Select education</option>
+                                            <option value="high-school">High School</option>
+                                            <option value="diploma">Diploma</option>
+                                            <option value="bachelors">Bachelor's Degree</option>
+                                            <option value="masters">Master's Degree</option>
+                                            <option value="phd">PhD</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select your education level
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Skills -->
+                                <div class="mb-3">
+                                    <label for="skills" class="form-label">Skills *</label>
+                                    <select class="form-select" id="skills" multiple required>
+                                        <option value="javascript">JavaScript</option>
+                                        <option value="python">Python</option>
+                                        <option value="java">Java</option>
+                                        <option value="csharp">C#</option>
+                                        <option value="php">PHP</option>
+                                        <option value="html">HTML/CSS</option>
+                                        <option value="react">React</option>
+                                        <option value="angular">Angular</option>
+                                        <option value="node">Node.js</option>
+                                        <option value="sql">SQL</option>
+                                        <option value="project-management">Project Management</option>
+                                        <option value="communication">Communication</option>
+                                    </select>
+                                    <div class="form-text">Select multiple skills (hold Ctrl/Cmd to select multiple)</div>
+                                    <div class="invalid-feedback">
+                                        Please select at least one skill
+                                    </div>
+                                </div>
+                                
+                                <!-- Resume Upload -->
+                                <div class="mb-4">
+                                    <label for="resume" class="form-label">Upload Resume/CV *</label>
+                                    <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx" required>
+                                    <div class="form-text">Accepted formats: PDF, DOC, DOCX (Max 5MB)</div>
+                                    <div class="invalid-feedback">
+                                        Please upload your resume
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-outline-secondary prev-step">
+                                        <i class="fas fa-arrow-left me-2"></i> Back
+                                    </button>
+                                    <button type="button" class="btn btn-primary next-step">
+                                        Continue <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 3: Account Setup -->
+                            <div class="step-content d-none" data-step-content="3">
+                                <h5 class="mb-4 border-bottom pb-2">Account Setup</h5>
+                                
+                                <!-- Username -->
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white">@</span>
+                                        <input type="text" class="form-control" id="username" required>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please choose a username
+                                    </div>
+                                    <div class="form-text">This will be your public profile name</div>
+                                </div>
+                                
+                                <!-- Password -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="password" class="form-label">Password *</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="password" required>
+                                            <button class="btn btn-outline-secondary toggle-password" 
+                                                    type="button" data-target="password">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please create a password
+                                        </div>
+                                        <div class="password-strength mt-2">
+                                            <div class="progress" style="height: 5px;">
+                                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                            </div>
+                                            <small class="text-muted">Password strength: <span class="strength-text">Weak</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="confirmPassword" required>
+                                            <button class="btn btn-outline-secondary toggle-password" 
+                                                    type="button" data-target="confirmPassword">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Passwords must match
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Job Preferences -->
+                                <div class="mb-3">
+                                    <label class="form-label">Job Preferences</label>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="fullTime">
+                                        <label class="form-check-label" for="fullTime">Full-time</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="partTime">
+                                        <label class="form-check-label" for="partTime">Part-time</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="remote">
+                                        <label class="form-check-label" for="remote">Remote</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="hybrid">
+                                        <label class="form-check-label" for="hybrid">Hybrid</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="relocate">
+                                        <label class="form-check-label" for="relocate">Willing to relocate</label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Job Alerts -->
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="jobAlerts" checked>
+                                        <label class="form-check-label" for="jobAlerts">
+                                            Send me job alerts matching my profile
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                        <label class="form-check-label" for="newsletter">
+                                            Subscribe to our newsletter
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Terms and Conditions -->
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a> *
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            You must agree to the terms
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-outline-secondary prev-step">
+                                        <i class="fas fa-arrow-left me-2"></i> Back
+                                    </button>
+                                    <button type="submit" class="btn btn-success px-4">
+                                        <i class="fas fa-user-plus me-2"></i> Complete Registration
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Login Link -->
+                <div class="text-center mt-4">
+                    <p class="text-muted">Already have an account? 
+                        <a href="login.html" class="text-primary fw-semibold">Log in here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form steps functionality
+            const form = document.getElementById('candidateRegistrationForm');
+            const stepContents = document.querySelectorAll('[data-step-content]');
+            const steps = document.querySelectorAll('.step');
+            const progressBar = document.querySelector('.step-progress-bar');
+            
+            let currentStep = 1;
+            const totalSteps = 3;
+            
+            // Profile photo upload preview
+            const profilePhoto = document.getElementById('profilePhoto');
+            const profilePreview = document.getElementById('profilePreview');
+            
+            if (profilePhoto) {
+                profilePhoto.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            profilePreview.src = e.target.result;
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+            
+            // Initialize password toggles
+            document.querySelectorAll('.toggle-password').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    const icon = this.querySelector('i');
+                    
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            });
+            
+            // Password strength indicator
+            const passwordInput = document.getElementById('password');
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    const strengthText = document.querySelector('.strength-text');
+                    const progressBar = document.querySelector('.password-strength .progress-bar');
+                    const password = this.value;
+                    let strength = 0;
+                    
+                    // Length check
+                    if (password.length >= 8) strength += 25;
+                    if (password.length >= 12) strength += 25;
+                    
+                    // Complexity checks
+                    if (/[A-Z]/.test(password)) strength += 15;
+                    if (/[0-9]/.test(password)) strength += 15;
+                    if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+                    
+                    // Update UI
+                    progressBar.style.width = strength + '%';
+                    progressBar.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+                    
+                    if (strength < 40) {
+                        progressBar.classList.add('bg-danger');
+                        strengthText.textContent = 'Weak';
+                    } else if (strength < 70) {
+                        progressBar.classList.add('bg-warning');
+                        strengthText.textContent = 'Moderate';
+                    } else {
+                        progressBar.classList.add('bg-success');
+                        strengthText.textContent = 'Strong';
+                    }
+                });
+            }
+            
+            // Next step buttons
+            document.querySelectorAll('.next-step').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Validate current step before proceeding
+                    if (validateStep(currentStep)) {
+                        if (currentStep < totalSteps) {
+                            // Update current step
+                            currentStep++;
+                            updateSteps();
+                        }
+                    }
+                });
+            });
+            
+            // Previous step buttons
+            document.querySelectorAll('.prev-step').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (currentStep > 1) {
+                        currentStep--;
+                        updateSteps();
+                    }
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate all steps before submission
+                let isValid = true;
+                for (let i = 1; i <= totalSteps; i++) {
+                    if (!validateStep(i)) {
+                        isValid = false;
+                    }
+                }
+                
+                if (isValid) {
+                    // Here you would typically submit the form to your Django backend
+                    console.log('Form is valid, ready to submit');
+                    
+                    // Create FormData object to handle file uploads
+                    const formData = new FormData();
+                    
+                    // Add all form fields to FormData
+                    formData.append('firstName', document.getElementById('firstName').value);
+                    formData.append('lastName', document.getElementById('lastName').value);
+                    formData.append('email', document.getElementById('email').value);
+                    // Add all other fields...
+                    
+                    // Add file uploads
+                    if (profilePhoto.files[0]) {
+                        formData.append('profilePhoto', profilePhoto.files[0]);
+                    }
+                    if (document.getElementById('resume').files[0]) {
+                        formData.append('resume', document.getElementById('resume').files[0]);
+                    }
+                    
+                    // Example fetch request (would need to be adapted to your Django endpoint)
+                    /*
+                    fetch('/api/candidates/register/', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken') // Django CSRF token
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = 'registration-success.html';
+                        } else {
+                            // Show error messages
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                    */
+                    
+                    // For demo purposes, show a success message
+                    alert('Registration successful! You can now log in to your account.');
+                    window.location.href = 'login.html';
+                }
+            });
+            
+            // Validate a specific step
+            function validateStep(step) {
+                let isValid = true;
+                const stepContent = document.querySelector(`[data-step-content="${step}"]`);
+                
+                // Find all required fields in this step
+                const requiredInputs = stepContent.querySelectorAll('[required]');
+                
+                requiredInputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.classList.add('is-invalid');
+                        isValid = false;
+                    } else {
+                        input.classList.remove('is-invalid');
+                        
+                        // Additional validation for specific fields
+                        if (input.id === 'email' && !isValidEmail(input.value)) {
+                            input.classList.add('is-invalid');
+                            isValid = false;
+                        }
+                        
+                        if (input.id === 'password' && input.value.length < 8) {
+                            input.classList.add('is-invalid');
+                            isValid = false;
+                        }
+                        
+                        if (input.id === 'confirmPassword' && 
+                            input.value !== document.getElementById('password').value) {
+                            input.classList.add('is-invalid');
+                            isValid = false;
+                        }
+                    }
+                });
+                
+                return isValid;
+            }
+            
+            // Email validation helper
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+            
+            // Update step indicators and progress bar
+            function updateSteps() {
+                // Update step indicators
+                steps.forEach((step) => {
+                    const stepNumber = parseInt(step.getAttribute('data-step'));
+                    if (stepNumber < currentStep) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    } else if (stepNumber === currentStep) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    } else {
+                        step.classList.remove('active', 'completed');
+                    }
+                });
+                
+                // Update progress bar
+                const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                progressBar.style.width = progressPercentage + '%';
+                
+                // Show/hide step contents
+                stepContents.forEach((content) => {
+                    const contentStep = parseInt(content.getAttribute('data-step-content'));
+                    if (contentStep === currentStep) {
+                        content.classList.remove('d-none');
+                    } else {
+                        content.classList.add('d-none');
+                    }
+                });
+            }
+            
+            // Helper function to get CSRF token (for Django integration)
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        });
+    </script>
+</body>
+</html>
